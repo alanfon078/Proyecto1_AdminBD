@@ -28,67 +28,103 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            panel2 = new Panel();
-            btnVehiculos = new Button();
+            pnlContenedor = new Panel();
+            lblTitulo = new Label();
+            panelMenu = new Panel();
             btnMecanicos = new Button();
-            panel2.SuspendLayout();
+            btnVehiculos = new Button();
+            pnlContenedor.SuspendLayout();
+            panelMenu.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // pnlContenedor
             // 
-            panel1.Location = new Point(171, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1587, 866);
-            panel1.TabIndex = 0;
+            pnlContenedor.BackColor = Color.White;
+            pnlContenedor.Controls.Add(lblTitulo);
+            pnlContenedor.Dock = DockStyle.Fill;
+            pnlContenedor.Location = new Point(220, 0);
+            pnlContenedor.Name = "pnlContenedor";
+            pnlContenedor.Size = new Size(1133, 808);
+            pnlContenedor.TabIndex = 0;
             // 
-            // panel2
+            // lblTitulo
             // 
-            panel2.BackColor = SystemColors.ActiveCaption;
-            panel2.Controls.Add(btnMecanicos);
-            panel2.Controls.Add(btnVehiculos);
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(173, 863);
-            panel2.TabIndex = 1;
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblTitulo.ForeColor = Color.FromArgb(30, 30, 60);
+            lblTitulo.Location = new Point(50, 40);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(446, 46);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Sistema de Administración";
             // 
-            // btnVehiculos
+            // panelMenu
             // 
-            btnVehiculos.Location = new Point(39, 114);
-            btnVehiculos.Name = "btnVehiculos";
-            btnVehiculos.Size = new Size(94, 29);
-            btnVehiculos.TabIndex = 0;
-            btnVehiculos.Text = "button1";
-            btnVehiculos.UseVisualStyleBackColor = true;
+            panelMenu.BackColor = Color.FromArgb(30, 30, 60);
+            panelMenu.Controls.Add(btnMecanicos);
+            panelMenu.Controls.Add(btnVehiculos);
+            panelMenu.Dock = DockStyle.Left;
+            panelMenu.Location = new Point(0, 0);
+            panelMenu.Name = "panelMenu";
+            panelMenu.Size = new Size(220, 808);
+            panelMenu.TabIndex = 1;
             // 
             // btnMecanicos
             // 
-            btnMecanicos.Location = new Point(39, 417);
+            btnMecanicos.BackColor = Color.FromArgb(30, 30, 60);
+            btnMecanicos.Dock = DockStyle.Top;
+            btnMecanicos.FlatAppearance.BorderSize = 0;
+            btnMecanicos.FlatStyle = FlatStyle.Flat;
+            btnMecanicos.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnMecanicos.ForeColor = Color.White;
+            btnMecanicos.Location = new Point(0, 60);
             btnMecanicos.Name = "btnMecanicos";
-            btnMecanicos.Size = new Size(94, 29);
-            btnMecanicos.TabIndex = 1;
-            btnMecanicos.Text = "button1";
-            btnMecanicos.UseVisualStyleBackColor = true;
+            btnMecanicos.Size = new Size(220, 60);
+            btnMecanicos.TabIndex = 0;
+            btnMecanicos.Text = "🔧  Mecánicos";
+            btnMecanicos.UseVisualStyleBackColor = false;
+            // 
+            // btnVehiculos
+            // 
+            btnVehiculos.BackColor = Color.FromArgb(30, 30, 60);
+            btnVehiculos.Dock = DockStyle.Top;
+            btnVehiculos.FlatAppearance.BorderSize = 0;
+            btnVehiculos.FlatStyle = FlatStyle.Flat;
+            btnVehiculos.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnVehiculos.ForeColor = Color.White;
+            btnVehiculos.Location = new Point(0, 0);
+            btnVehiculos.Name = "btnVehiculos";
+            btnVehiculos.Size = new Size(220, 60);
+            btnVehiculos.TabIndex = 1;
+            btnVehiculos.Text = "🚗  Vehículos";
+            btnVehiculos.UseVisualStyleBackColor = false;
+            btnVehiculos.Click += btnVehiculos_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1760, 859);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
+            BackColor = Color.White;
+            ClientSize = new Size(1353, 808);
+            Controls.Add(pnlContenedor);
+            Controls.Add(panelMenu);
             Name = "Form1";
-            Text = "Form1";
-            panel2.ResumeLayout(false);
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Sistema Taller Mecánico";
+            WindowState = FormWindowState.Maximized;
+            pnlContenedor.ResumeLayout(false);
+            pnlContenedor.PerformLayout();
+            panelMenu.ResumeLayout(false);
             ResumeLayout(false);
         }
 
+
         #endregion
 
-        private Panel panel1;
+        private Panel pnlContenedor;
         private Panel panel2;
         private Button button2;
         private Button btnVehiculos;
         private Button btnMecanicos;
+        private Label lblTitulo;
+        private Panel panelMenu;
     }
 }
