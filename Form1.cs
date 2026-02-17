@@ -30,6 +30,19 @@ namespace Proyecto1_AdminBD
 
             frmActivo = frmVehiculos;
         }
+        private void ConfigurarHover(Button btn)
+        {
+            btn.MouseEnter += (s, e) =>
+            {
+                btn.BackColor = Color.FromArgb(50, 50, 90);
+            };
+
+            btn.MouseLeave += (s, e) =>
+            {
+                btn.BackColor = Color.FromArgb(30, 30, 60);
+            };
+        }
+
 
         private void ConfigurarHover(Button btn)
         {
