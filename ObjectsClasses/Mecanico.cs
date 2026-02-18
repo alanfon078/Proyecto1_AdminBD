@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto1_AdminBD.ObjectsClasses
 {
-    internal class Mecanico
+    public class Mecanico
     {
         public int IdMecanico { get; set; }
         public string NoEmpleado { get; set; }

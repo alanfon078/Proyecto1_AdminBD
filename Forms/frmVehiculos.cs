@@ -1,7 +1,11 @@
-﻿using Proyecto1_AdminBD.DAO;
+﻿using Conection.Conexion;
+using MySql.Data.MySqlClient;
+using Proyecto1_AdminBD.DAO;
+using Proyecto1_AdminBD.Forms;
 using Proyecto1_AdminBD.ObjectsClasses;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
@@ -132,17 +136,67 @@ namespace Proyecto1_AdminBD
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-
+            frmDetalleVehiculo frm = new frmDetalleVehiculo();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                if (datos.InsertarVehiculo(frm.VehiculoResultante))
+                {
+                    MessageBox.Show("Vehículo registrado con éxito.");
+                    CargarDatos();
+                }
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (dgvVehiculos.SelectedRows.Count > 0)
+            {
+                Vehiculo obj = (Vehiculo)dgvVehiculos.SelectedRows[0].DataBoundItem;
 
+                // Pasamos el vehículo al formulario para que llene los campos
+                frmDetalleVehiculo frm = new frmDetalleVehiculo(obj);
+
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    if (datos.ActualizarVehiculo(frm.VehiculoResultante))
+                    {
+                        MessageBox.Show("Vehículo actualizado correctamente.");
+                        CargarDatos();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un vehículo para editar.");
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (dgvVehiculos.SelectedRows.Count > 0)
+            {
+                Vehiculo obj = (Vehiculo)dgvVehiculos.SelectedRows[0].DataBoundItem;
 
+                DialogResult r = MessageBox.Show(
+                    $"¿Eliminar el vehículo con placas {obj.Placas}?",
+                    "Confirmar",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (r == DialogResult.Yes)
+                {
+                    if (datos.EliminarVehiculo(obj.IdVehiculo))
+                    {
+                        MessageBox.Show("Vehículo eliminado.");
+                        CargarDatos();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un registro.");
+            }
         }
+
     }
 }

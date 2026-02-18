@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto1_AdminBD.ObjectsClasses
 {
-    internal class Vehiculo
+    public class Vehiculo
     {
         public int IdVehiculo { get; set; }
         public int IdCliente { get; set; }

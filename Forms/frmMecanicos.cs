@@ -2,10 +2,10 @@
 using Proyecto1_AdminBD.ObjectsClasses;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Drawing; // Necesario para el diseño visual
 using System.Drawing.Drawing2D; // Necesario para la rotacion de la imagen
 using System.Threading.Tasks; // Necesario para el efecto de carga
+using System.Windows.Forms;
 
 namespace Proyecto1_AdminBD.Forms
 {
@@ -126,17 +126,74 @@ namespace Proyecto1_AdminBD.Forms
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            // Creamos la instancia del formulario de detalle (que debes crear, ver abajo)
+            frmDetalleMecanico frm = new frmDetalleMecanico();
 
+            // Mostramos el formulario como diálogo (bloquea la ventana de atrás)
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                // Si el usuario dio "Guardar" en el otro form, intentamos insertar
+                if (datos.InsertarMecanico(frm.MecanicoResultante))
+                {
+                    MessageBox.Show("Mecánico registrado con éxito.");
+                    CargarDatos(); // Recargar el grid
+                }
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            // Validamos que haya una fila seleccionada
+            if (dgvMecanicos.SelectedRows.Count > 0)
+            {
+                // Obtenemos el objeto Mecanico de la fila seleccionada
+                Mecanico objSeleccionado = (Mecanico)dgvMecanicos.SelectedRows[0].DataBoundItem;
 
+                // Abrimos el formulario de detalle pasándole el objeto a editar
+                frmDetalleMecanico frm = new frmDetalleMecanico(objSeleccionado);
+
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    // Si el usuario guarda, actualizamos
+                    if (datos.ActualizarMecanico(frm.MecanicoResultante))
+                    {
+                        MessageBox.Show("Mecánico actualizado correctamente.");
+                        CargarDatos();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona un mecánico de la lista.");
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (dgvMecanicos.SelectedRows.Count > 0)
+            {
+                Mecanico obj = (Mecanico)dgvMecanicos.SelectedRows[0].DataBoundItem;
 
+                // Preguntamos confirmación
+                DialogResult respuesta = MessageBox.Show(
+                    $"¿Estás seguro de eliminar a {obj.NombreCompleto}?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    if (datos.EliminarMecanico(obj.IdMecanico))
+                    {
+                        MessageBox.Show("Mecánico eliminado.");
+                        CargarDatos();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un registro para eliminar.");
+            }
         }
     }
 }
