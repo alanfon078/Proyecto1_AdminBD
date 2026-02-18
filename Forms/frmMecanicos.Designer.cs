@@ -36,6 +36,7 @@
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            salario = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvMecanicos).BeginInit();
@@ -155,7 +156,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvMecanicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvMecanicos.ColumnHeadersHeight = 40;
-            dgvMecanicos.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
+            dgvMecanicos.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, salario, dataGridViewTextBoxColumn5 });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.5F);
@@ -208,6 +209,13 @@
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
+            // salario
+            //
+            this.salario.HeaderText = "Salario";
+            this.salario.MinimumWidth = 6;
+            this.salario.Name = "colSalario";
+            this.salario.ReadOnly = true;
+            // 
             // dataGridViewTextBoxColumn5
             // 
             dataGridViewTextBoxColumn5.HeaderText = "Estado";
@@ -231,10 +239,12 @@
             ((System.ComponentModel.ISupportInitialize)dgvMecanicos).EndInit();
             ResumeLayout(false);
         }
+
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn salario;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }

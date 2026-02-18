@@ -4,6 +4,7 @@ using Proyecto1_AdminBD.DAO;
 using Proyecto1_AdminBD.ObjectsClasses;
 using System;
 using System.Data;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Proyecto1_AdminBD.Forms
@@ -35,7 +36,6 @@ namespace Proyecto1_AdminBD.Forms
 
         private void CargarClientes()
         {
-            // Usamos el método helper del DAO
             DataTable dt = datos.ObtenerClientesParaCombo();
             cmbCliente.DataSource = dt;
             cmbCliente.DisplayMember = "NombreCompleto"; // Nombre de la columna en el SELECT
@@ -55,30 +55,73 @@ namespace Proyecto1_AdminBD.Forms
             numKm.Value = VehiculoResultante.Kilometraje;
             cmbTipo.Text = VehiculoResultante.TipoVehiculo;
 
-            // Si es edición, a veces no se permite cambiar el Número de Serie o el Cliente
-            // txtSerie.Enabled = false; 
+            // Si es edición no se permite cambiar el Número de Serie o el Cliente
+            txtSerie.Enabled = false; 
+            cmbCliente.Enabled = false;
+        }
+        private bool ValidarDatosVehiculo()
+        {
+            // 1. Validar Cliente Seleccionado
+            if (cmbCliente.SelectedIndex == -1 || cmbCliente.SelectedValue == null)
+            {
+                MessageBox.Show("Debe seleccionar un cliente (Dueño) de la lista.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // 2. Validar campos vacíos básicos
+            if (string.IsNullOrWhiteSpace(txtSerie.Text) ||
+                string.IsNullOrWhiteSpace(txtPlacas.Text) ||
+                string.IsNullOrWhiteSpace(txtMarca.Text) ||
+                string.IsNullOrWhiteSpace(txtModelo.Text))
+            {
+                MessageBox.Show("El Número de Serie, Placas, Marca y Modelo son obligatorios.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // 3. Validar Placas (Letras, números y guiones, sin caracteres especiales raros)`
+            string patronPlacas = @"^[A-Z0-9-]{3,12}$";
+            if (!Regex.IsMatch(txtPlacas.Text.Trim().ToUpper(), patronPlacas))
+            {
+                MessageBox.Show("Las placas contienen caracteres inválidos o longitud incorrecta.", "Formato Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // 4. Validar Año
+            int anioActual = DateTime.Now.Year;
+            if (numAnio.Value < 1980 || numAnio.Value > (anioActual + 1))
+            {
+                MessageBox.Show($"El año del vehículo debe estar entre 1980 y {anioActual + 1}.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // 5. Validar Kilometraje
+            if (numKm.Value < 0)
+            {
+                MessageBox.Show("El kilometraje no puede ser negativo.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (cmbCliente.SelectedIndex == -1)
-            {
-                MessageBox.Show("Debes seleccionar un cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(txtPlacas.Text) || string.IsNullOrWhiteSpace(txtSerie.Text))
-            {
-                MessageBox.Show("Placas y Número de Serie son obligatorios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            // Ejecutar validaciones
+            if (!ValidarDatosVehiculo()) return;
 
+            // Asignación de datos limpios
             VehiculoResultante.IdCliente = Convert.ToInt32(cmbCliente.SelectedValue);
-            VehiculoResultante.NumeroSerie = txtSerie.Text;
-            VehiculoResultante.Placas = txtPlacas.Text;
-            VehiculoResultante.Marca = txtMarca.Text;
-            VehiculoResultante.Modelo = txtModelo.Text;
+
+            // Convertir a mayúsculas Serie y Placas para uniformidad en BD
+            VehiculoResultante.NumeroSerie = txtSerie.Text.Trim().ToUpper();
+            VehiculoResultante.Placas = txtPlacas.Text.Trim().ToUpper();
+
+            // Marca y Modelo en formato Título o Mayúsculas según preferencia
+            VehiculoResultante.Marca = txtMarca.Text.Trim();
+            VehiculoResultante.Modelo = txtModelo.Text.Trim();
+
             VehiculoResultante.Anio = (int)numAnio.Value;
-            VehiculoResultante.Color = txtColor.Text;
+            VehiculoResultante.Color = txtColor.Text.Trim();
             VehiculoResultante.Kilometraje = (int)numKm.Value;
             VehiculoResultante.TipoVehiculo = cmbTipo.Text;
             VehiculoResultante.Activo = true;

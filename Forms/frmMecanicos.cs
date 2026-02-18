@@ -102,20 +102,24 @@ namespace Proyecto1_AdminBD.Forms
         {
             dgvMecanicos.AutoGenerateColumns = false;
 
-            // Columna 1 -> ID
+            // Columna 0 -> ID
             dgvMecanicos.Columns[0].DataPropertyName = "IdMecanico";
 
-            // Columna 2 -> Nombre Completo
+            // Columna 1 -> Nombre Completo
             dgvMecanicos.Columns[1].DataPropertyName = "NombreCompleto";
 
-            // Columna 3 -> Teléfono
+            // Columna 2 -> Teléfono
             dgvMecanicos.Columns[2].DataPropertyName = "Telefono";
 
-            // Columna 4 -> Especialidad
+            // Columna 3 -> Especialidad
             dgvMecanicos.Columns[3].DataPropertyName = "Especialidades";
 
-            // Columna5 -> Estado
-            dgvMecanicos.Columns[4].DataPropertyName = "EstadoTexto";
+            // Columna 4 -> Salario 
+            dgvMecanicos.Columns[4].DataPropertyName = "Salario";
+            dgvMecanicos.Columns[4].DefaultCellStyle.Format = "C2"; // Formato de Moneda ($1,500.00)
+
+            // Columna 5 -> Estado
+            dgvMecanicos.Columns[5].DataPropertyName = "EstadoTexto";
         }
 
         private void CargarDatos()
