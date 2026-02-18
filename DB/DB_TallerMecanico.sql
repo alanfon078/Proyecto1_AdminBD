@@ -146,11 +146,11 @@ INSERT INTO Telefonos_Clientes (ID_Cliente, Numero_Telefono) VALUES
 
 -- Insertar Mecanicos (5)
 INSERT INTO Mecanicos (No_Empleado, RFC, Nombre_Completo, Telefono, Salario, Anios_Experiencia) VALUES
-('EMP001', 'MEC010101AAA', 'Roberto Mecanico', '5511112222', 15000.00, 10),
-('EMP002', 'MEC020202BBB', 'Laura Motor', '5533334444', 18000.00, 12),
-('EMP003', 'MEC030303CCC', 'Pedro Frenos', '5555556666', 12000.00, 5),
-('EMP004', 'MEC040404DDD', 'Sofia Electric', '5577778888', 16000.00, 8),
-('EMP005', 'MEC050505EEE', 'Miguel Suspension', '5599990000', 14000.00, 6);
+('EMP1', 'MEC010101AAA', 'Roberto Mecanico', '5511112222', 15000.00, 10),
+('EMP2', 'MEC020202BBB', 'Laura Motor', '5533334444', 18000.00, 12),
+('EMP3', 'MEC030303CCC', 'Pedro Frenos', '5555556666', 12000.00, 5),
+('EMP4', 'MEC040404DDD', 'Sofia Electric', '5577778888', 16000.00, 8),
+('EMP5', 'MEC050505EEE', 'Miguel Suspension', '5599990000', 14000.00, 6);
 
 -- Insertar Especialidades
 INSERT INTO Especialidades_Mecanicos (ID_Mecanico, Especialidad) VALUES
@@ -158,29 +158,29 @@ INSERT INTO Especialidades_Mecanicos (ID_Mecanico, Especialidad) VALUES
 
 -- Insertar Servicios (5)
 INSERT INTO Servicios (Clave_Servicio, Nombre_Servicio, Descripcion, Costo_Base, Tiempo_Estimado_Hrs) VALUES
-('SERV001', 'Afinación Mayor', 'Cambio de bujias, filtros, aceite y lavado de inyectores', 2500.00, 4.0),
-('SERV002', 'Cambio de Aceite', 'Aceite sintético y filtro', 800.00, 1.0),
-('SERV003', 'Cambio de Balatas', 'Frenos delanteros y traseros', 1200.00, 2.0),
-('SERV004', 'Alineación y Balanceo', 'Por computadora', 600.00, 1.5),
-('SERV005', 'Escaneo de Computadora', 'Diagnóstico general OBD2', 300.00, 0.5);
+('SERV1', 'Afinación Mayor', 'Cambio de bujias, filtros, aceite y lavado de inyectores', 2500.00, 4.0),
+('SERV2', 'Cambio de Aceite', 'Aceite sintético y filtro', 800.00, 1.0),
+('SERV3', 'Cambio de Balatas', 'Frenos delanteros y traseros', 1200.00, 2.0),
+('SERV4', 'Alineación y Balanceo', 'Por computadora', 600.00, 1.5),
+('SERV5', 'Escaneo de Computadora', 'Diagnóstico general OBD2', 300.00, 0.5);
 
 -- Insertar Refacciones (15 registros solicitados)
 INSERT INTO Refacciones (Codigo_Refaccion, Nombre, Marca, Precio_Unitario, Stock_Actual, Stock_Minimo, Proveedor) VALUES
-('REF001', 'Filtro de Aceite', 'Gonher', 150.00, 50, 10, 'Proveedora Automotriz'),
-('REF002', 'Bujía Iridio', 'NGK', 120.00, 100, 20, 'Autopartes Express'),
-('REF003', 'Aceite Sintético 5W30', 'Mobil 1', 950.00, 30, 5, 'Lubricantes del Norte'),
-('REF004', 'Balatas Delanteras', 'Brembo', 850.00, 15, 2, 'Frenos y Mas'),
-('REF005', 'Balatas Traseras', 'Brembo', 750.00, 15, 2, 'Frenos y Mas'),
-('REF006', 'Filtro de Aire', 'Fram', 200.00, 40, 5, 'Proveedora Automotriz'),
-('REF007', 'Amortiguador Delantero', 'Monroe', 1200.00, 8, 2, 'Suspensiones Totales'),
-('REF008', 'Amortiguador Trasero', 'Monroe', 1100.00, 8, 2, 'Suspensiones Totales'),
-('REF009', 'Batería', 'LTH', 2500.00, 10, 3, 'Acumuladores Nacionales'),
-('REF010', 'Banda de Tiempo', 'Gates', 600.00, 12, 2, 'Autopartes Express'),
-('REF011', 'Bomba de Agua', 'Trezzo', 800.00, 6, 1, 'Autopartes Express'),
-('REF012', 'Disco de Freno', 'Brembo', 900.00, 10, 2, 'Frenos y Mas'),
-('REF013', 'Radiador', 'Valeo', 3500.00, 4, 1, 'Enfriamiento Total'),
-('REF014', 'Termostato', 'Gates', 300.00, 20, 5, 'Autopartes Express'),
-('REF015', 'Sensor de Oxígeno', 'Bosch', 1500.00, 5, 1, 'Sensores y Cables');
+('REF1', 'Filtro de Aceite', 'Gonher', 150.00, 50, 10, 'Proveedora Automotriz'),
+('REF2', 'Bujía Iridio', 'NGK', 120.00, 100, 20, 'Autopartes Express'),
+('REF3', 'Aceite Sintético 5W30', 'Mobil 1', 950.00, 30, 5, 'Lubricantes del Norte'),
+('REF4', 'Balatas Delanteras', 'Brembo', 850.00, 15, 2, 'Frenos y Mas'),
+('REF5', 'Balatas Traseras', 'Brembo', 750.00, 15, 2, 'Frenos y Mas'),
+('REF6', 'Filtro de Aire', 'Fram', 200.00, 40, 5, 'Proveedora Automotriz'),
+('REF7', 'Amortiguador Delantero', 'Monroe', 1200.00, 8, 2, 'Suspensiones Totales'),
+('REF8', 'Amortiguador Trasero', 'Monroe', 1100.00, 8, 2, 'Suspensiones Totales'),
+('REF9', 'Batería', 'LTH', 2500.00, 10, 3, 'Acumuladores Nacionales'),
+('REF10', 'Banda de Tiempo', 'Gates', 600.00, 12, 2, 'Autopartes Express'),
+('REF11', 'Bomba de Agua', 'Trezzo', 800.00, 6, 1, 'Autopartes Express'),
+('REF12', 'Disco de Freno', 'Brembo', 900.00, 10, 2, 'Frenos y Mas'),
+('REF13', 'Radiador', 'Valeo', 3500.00, 4, 1, 'Enfriamiento Total'),
+('REF14', 'Termostato', 'Gates', 300.00, 20, 5, 'Autopartes Express'),
+('REF15', 'Sensor de Oxígeno', 'Bosch', 1500.00, 5, 1, 'Sensores y Cables');
 
 -- Insertar Vehiculos (5)
 INSERT INTO Vehiculos (ID_Cliente, Numero_Serie, Placas, Marca, Modelo, Anio, Color, Kilometraje, Tipo_Vehiculo) VALUES
