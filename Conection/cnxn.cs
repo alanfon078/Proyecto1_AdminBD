@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using System.Text;
 
 namespace Conection.Conexion
 {
-    internal class Conection
+    internal class cnxn
     {
         /// <summary>
         /// Obtiene una conexión a la base de datos MySQL.

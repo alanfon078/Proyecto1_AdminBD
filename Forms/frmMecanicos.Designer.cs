@@ -209,11 +209,6 @@
             dataGridViewTextBoxColumn5.MinimumWidth = 6;
             dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             dataGridViewTextBoxColumn5.ReadOnly = true;
-            // Datos de ejemplo
-            dgvMecanicos.Rows.Add("1", "Juan Pérez", "555-1234", "Motores", "Activo");
-            dgvMecanicos.Rows.Add("2", "María García", "555-5678", "Transmisión", "Activo");
-            dgvMecanicos.Rows.Add("3", "Carlos López", "555-9012", "Frenos", "Inactivo");
-            dgvMecanicos.Rows.Add("4", "Ana Martínez", "555-3456", "Electricidad", "Activo");
             // 
             // frmMecanicos
             // 
