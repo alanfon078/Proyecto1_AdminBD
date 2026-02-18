@@ -16,8 +16,18 @@ namespace Conection.Conexion
         /// <returns> Objeto MySqlConnection abierto.</returns>
         public MySqlConnection ObtenerConexion()
         {
-            MySqlConnection conexion = new MySqlConnection("server=20.124.88.140; database=TallerMecanicoDB; user='admi'; pwd='Blackops078.';Allow User Variables=True;");
-            conexion.Open();
+            string connectionString = "server=20.124.88.140; port=3306; database=TallerMecanicoDB; uid=admi; pwd=Blackops078.; SslMode=Required;";
+            MySqlConnection conexion = new MySqlConnection(connectionString);
+            try
+            {
+                conexion.Open();
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show("Error al abrir conexión: " + ex.Message);
+                return null; // Retornamos null para indicar fallo
+            }
             return conexion;
         }
 

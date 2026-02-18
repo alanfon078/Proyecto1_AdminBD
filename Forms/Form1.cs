@@ -1,3 +1,6 @@
+using Conection.Conexion;
+using MySql.Data.MySqlClient;
+
 namespace Proyecto1_AdminBD
 {
     public partial class Form1 : Form
@@ -7,10 +10,23 @@ namespace Proyecto1_AdminBD
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+            Conection.Conexion.Conection conexion = new Conection.Conexion.Conection();
+            MySqlConnection c = conexion.ObtenerConexion();
+
+            // Verificamos si es null (nuestro indicador de error en el try-catch) 
+            if (c != null && c.State == System.Data.ConnectionState.Open)
+            {
+                MessageBox.Show("Conexión exitosa a la base de datos.");
+            }
+            else
+            {
+                MessageBox.Show("Error al conectar. Revisa la consola de salida para ver el detalle del error.");
+            }
         }
 
         private void btnVehiculos_Click(object sender, EventArgs e)
         {
+
             frmVehiculos frmVehiculos = new frmVehiculos();
 
             frmVehiculos.TopLevel = false;
