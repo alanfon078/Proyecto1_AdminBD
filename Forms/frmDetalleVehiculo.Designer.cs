@@ -14,302 +14,308 @@
 
         private void InitializeComponent()
         {
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbCliente = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSerie = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPlacas = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtMarca = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtModelo = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.numAnio = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtColor = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.numKm = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cmbTipo = new System.Windows.Forms.ComboBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.pnlHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numAnio)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numKm)).BeginInit();
-            this.SuspendLayout();
+            pnlHeader = new Panel();
+            lblTitulo = new Label();
+            label1 = new Label();
+            cmbCliente = new ComboBox();
+            label2 = new Label();
+            txtSerie = new TextBox();
+            label3 = new Label();
+            txtPlacas = new TextBox();
+            label4 = new Label();
+            txtMarca = new TextBox();
+            label5 = new Label();
+            txtModelo = new TextBox();
+            label6 = new Label();
+            numAnio = new NumericUpDown();
+            label7 = new Label();
+            txtColor = new TextBox();
+            label8 = new Label();
+            numKm = new NumericUpDown();
+            label9 = new Label();
+            cmbTipo = new ComboBox();
+            btnGuardar = new Button();
+            btnCancelar = new Button();
+            pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numAnio).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numKm).BeginInit();
+            SuspendLayout();
             // 
             // pnlHeader
             // 
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(60)))));
-            this.pnlHeader.Controls.Add(this.lblTitulo);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(550, 50);
-            this.pnlHeader.TabIndex = 0;
-            this.pnlHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlHeader_MouseDown);
+            pnlHeader.BackColor = Color.FromArgb(30, 30, 60);
+            pnlHeader.Controls.Add(lblTitulo);
+            pnlHeader.Dock = DockStyle.Top;
+            pnlHeader.Location = new Point(0, 0);
+            pnlHeader.Margin = new Padding(3, 4, 3, 4);
+            pnlHeader.Name = "pnlHeader";
+            pnlHeader.Size = new Size(629, 67);
+            pnlHeader.TabIndex = 0;
+            pnlHeader.MouseDown += pnlHeader_MouseDown;
             // 
             // lblTitulo
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(12, 13);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(133, 21);
-            this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Detalle Vehículo";
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblTitulo.ForeColor = Color.White;
+            lblTitulo.Location = new Point(14, 17);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(167, 28);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Detalle Vehículo";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(30, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Dueño (Cliente):";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label1.Location = new Point(34, 93);
+            label1.Name = "label1";
+            label1.Size = new Size(123, 20);
+            label1.TabIndex = 1;
+            label1.Text = "Dueño (Cliente):";
             // 
             // cmbCliente
             // 
-            this.cmbCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCliente.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbCliente.FormattingEnabled = true;
-            this.cmbCliente.Location = new System.Drawing.Point(33, 88);
-            this.cmbCliente.Name = "cmbCliente";
-            this.cmbCliente.Size = new System.Drawing.Size(480, 25);
-            this.cmbCliente.TabIndex = 1;
+            cmbCliente.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCliente.Font = new Font("Segoe UI", 10F);
+            cmbCliente.FormattingEnabled = true;
+            cmbCliente.Location = new Point(38, 117);
+            cmbCliente.Margin = new Padding(3, 4, 3, 4);
+            cmbCliente.Name = "cmbCliente";
+            cmbCliente.Size = new Size(548, 31);
+            cmbCliente.TabIndex = 1;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(30, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "No. Serie:";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label2.Location = new Point(34, 173);
+            label2.Name = "label2";
+            label2.Size = new Size(76, 20);
+            label2.TabIndex = 3;
+            label2.Text = "No. Serie:";
             // 
             // txtSerie
             // 
-            this.txtSerie.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtSerie.Location = new System.Drawing.Point(33, 148);
-            this.txtSerie.Name = "txtSerie";
-            this.txtSerie.Size = new System.Drawing.Size(230, 25);
-            this.txtSerie.TabIndex = 2;
+            txtSerie.Font = new Font("Segoe UI", 10F);
+            txtSerie.Location = new Point(38, 197);
+            txtSerie.Margin = new Padding(3, 4, 3, 4);
+            txtSerie.Name = "txtSerie";
+            txtSerie.Size = new Size(262, 30);
+            txtSerie.TabIndex = 2;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(280, 130);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 15);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Placas:";
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label3.Location = new Point(320, 173);
+            label3.Name = "label3";
+            label3.Size = new Size(56, 20);
+            label3.TabIndex = 5;
+            label3.Text = "Placas:";
             // 
             // txtPlacas
             // 
-            this.txtPlacas.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtPlacas.Location = new System.Drawing.Point(283, 148);
-            this.txtPlacas.Name = "txtPlacas";
-            this.txtPlacas.Size = new System.Drawing.Size(230, 25);
-            this.txtPlacas.TabIndex = 3;
+            txtPlacas.Font = new Font("Segoe UI", 10F);
+            txtPlacas.Location = new Point(323, 197);
+            txtPlacas.Margin = new Padding(3, 4, 3, 4);
+            txtPlacas.Name = "txtPlacas";
+            txtPlacas.Size = new Size(262, 30);
+            txtPlacas.TabIndex = 3;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(30, 190);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 15);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Marca:";
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label4.Location = new Point(34, 253);
+            label4.Name = "label4";
+            label4.Size = new Size(56, 20);
+            label4.TabIndex = 7;
+            label4.Text = "Marca:";
             // 
             // txtMarca
             // 
-            this.txtMarca.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtMarca.Location = new System.Drawing.Point(33, 208);
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(230, 25);
-            this.txtMarca.TabIndex = 4;
+            txtMarca.Font = new Font("Segoe UI", 10F);
+            txtMarca.Location = new Point(38, 277);
+            txtMarca.Margin = new Padding(3, 4, 3, 4);
+            txtMarca.Name = "txtMarca";
+            txtMarca.Size = new Size(262, 30);
+            txtMarca.TabIndex = 4;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(280, 190);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 15);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Modelo:";
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label5.Location = new Point(320, 253);
+            label5.Name = "label5";
+            label5.Size = new Size(66, 20);
+            label5.TabIndex = 9;
+            label5.Text = "Modelo:";
             // 
             // txtModelo
             // 
-            this.txtModelo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtModelo.Location = new System.Drawing.Point(283, 208);
-            this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(230, 25);
-            this.txtModelo.TabIndex = 5;
+            txtModelo.Font = new Font("Segoe UI", 10F);
+            txtModelo.Location = new Point(323, 277);
+            txtModelo.Margin = new Padding(3, 4, 3, 4);
+            txtModelo.Name = "txtModelo";
+            txtModelo.Size = new Size(262, 30);
+            txtModelo.TabIndex = 5;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(30, 250);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 15);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Año:";
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label6.Location = new Point(34, 333);
+            label6.Name = "label6";
+            label6.Size = new Size(42, 20);
+            label6.TabIndex = 11;
+            label6.Text = "Año:";
             // 
             // numAnio
             // 
-            this.numAnio.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.numAnio.Location = new System.Drawing.Point(33, 268);
-            this.numAnio.Maximum = new decimal(new int[] { 3000, 0, 0, 0 });
-            this.numAnio.Minimum = new decimal(new int[] { 1900, 0, 0, 0 });
-            this.numAnio.Name = "numAnio";
-            this.numAnio.Size = new System.Drawing.Size(100, 25);
-            this.numAnio.TabIndex = 6;
-            this.numAnio.Value = new decimal(new int[] { 2024, 0, 0, 0 });
+            numAnio.Font = new Font("Segoe UI", 10F);
+            numAnio.Location = new Point(38, 357);
+            numAnio.Margin = new Padding(3, 4, 3, 4);
+            numAnio.Maximum = new decimal(new int[] { 3000, 0, 0, 0 });
+            numAnio.Minimum = new decimal(new int[] { 1900, 0, 0, 0 });
+            numAnio.Name = "numAnio";
+            numAnio.Size = new Size(114, 30);
+            numAnio.TabIndex = 6;
+            numAnio.Value = new decimal(new int[] { 2024, 0, 0, 0 });
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(150, 250);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 15);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Color:";
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label7.Location = new Point(171, 333);
+            label7.Name = "label7";
+            label7.Size = new Size(51, 20);
+            label7.TabIndex = 13;
+            label7.Text = "Color:";
             // 
             // txtColor
             // 
-            this.txtColor.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtColor.Location = new System.Drawing.Point(153, 268);
-            this.txtColor.Name = "txtColor";
-            this.txtColor.Size = new System.Drawing.Size(110, 25);
-            this.txtColor.TabIndex = 7;
+            txtColor.Font = new Font("Segoe UI", 10F);
+            txtColor.Location = new Point(175, 357);
+            txtColor.Margin = new Padding(3, 4, 3, 4);
+            txtColor.Name = "txtColor";
+            txtColor.Size = new Size(125, 30);
+            txtColor.TabIndex = 7;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(280, 250);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 15);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Km:";
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label8.Location = new Point(320, 333);
+            label8.Name = "label8";
+            label8.Size = new Size(37, 20);
+            label8.TabIndex = 15;
+            label8.Text = "Km:";
             // 
             // numKm
             // 
-            this.numKm.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.numKm.Location = new System.Drawing.Point(283, 268);
-            this.numKm.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
-            this.numKm.Name = "numKm";
-            this.numKm.Size = new System.Drawing.Size(100, 25);
-            this.numKm.TabIndex = 8;
+            numKm.Font = new Font("Segoe UI", 10F);
+            numKm.Location = new Point(323, 357);
+            numKm.Margin = new Padding(3, 4, 3, 4);
+            numKm.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
+            numKm.Name = "numKm";
+            numKm.Size = new Size(114, 30);
+            numKm.TabIndex = 8;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(395, 250);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(34, 15);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Tipo:";
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label9.Location = new Point(451, 333);
+            label9.Name = "label9";
+            label9.Size = new Size(44, 20);
+            label9.TabIndex = 17;
+            label9.Text = "Tipo:";
             // 
             // cmbTipo
             // 
-            this.cmbTipo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbTipo.FormattingEnabled = true;
-            this.cmbTipo.Items.AddRange(new object[] {
-            "Sedan",
-            "SUV",
-            "Pickup",
-            "Hatchback",
-            "Coupe",
-            "Van",
-            "Moto"});
-            this.cmbTipo.Location = new System.Drawing.Point(398, 267);
-            this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(115, 25);
-            this.cmbTipo.TabIndex = 9;
-            this.cmbTipo.Text = "Sedan";
+            cmbTipo.Font = new Font("Segoe UI", 10F);
+            cmbTipo.FormattingEnabled = true;
+            cmbTipo.Items.AddRange(new object[] { "Sedan", "SUV", "Pickup", "Hatchback", "Coupe", "Van" });
+            cmbTipo.Location = new Point(455, 356);
+            cmbTipo.Margin = new Padding(3, 4, 3, 4);
+            cmbTipo.Name = "cmbTipo";
+            cmbTipo.Size = new Size(131, 31);
+            cmbTipo.TabIndex = 9;
+            cmbTipo.Text = "Sedan";
             // 
             // btnGuardar
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(313, 330);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(100, 35);
-            this.btnGuardar.TabIndex = 10;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            btnGuardar.BackColor = Color.FromArgb(0, 122, 204);
+            btnGuardar.Cursor = Cursors.Hand;
+            btnGuardar.FlatAppearance.BorderSize = 0;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnGuardar.ForeColor = Color.White;
+            btnGuardar.Location = new Point(358, 440);
+            btnGuardar.Margin = new Padding(3, 4, 3, 4);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(114, 47);
+            btnGuardar.TabIndex = 10;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Gray;
-            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(419, 330);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(100, 35);
-            this.btnCancelar.TabIndex = 11;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            btnCancelar.BackColor = Color.Gray;
+            btnCancelar.Cursor = Cursors.Hand;
+            btnCancelar.FlatAppearance.BorderSize = 0;
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.Location = new Point(479, 440);
+            btnCancelar.Margin = new Padding(3, 4, 3, 4);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(114, 47);
+            btnCancelar.TabIndex = 11;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // frmDetalleVehiculo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(550, 400);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.cmbTipo);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.numKm);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtColor);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.numAnio);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtModelo);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtMarca);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtPlacas);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtSerie);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.cmbCliente);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pnlHeader);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmDetalleVehiculo";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Detalle Vehículo";
-            this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numAnio)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numKm)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(245, 247, 250);
+            ClientSize = new Size(629, 533);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnGuardar);
+            Controls.Add(cmbTipo);
+            Controls.Add(label9);
+            Controls.Add(numKm);
+            Controls.Add(label8);
+            Controls.Add(txtColor);
+            Controls.Add(label7);
+            Controls.Add(numAnio);
+            Controls.Add(label6);
+            Controls.Add(txtModelo);
+            Controls.Add(label5);
+            Controls.Add(txtMarca);
+            Controls.Add(label4);
+            Controls.Add(txtPlacas);
+            Controls.Add(label3);
+            Controls.Add(txtSerie);
+            Controls.Add(label2);
+            Controls.Add(cmbCliente);
+            Controls.Add(label1);
+            Controls.Add(pnlHeader);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "frmDetalleVehiculo";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Detalle Vehículo";
+            pnlHeader.ResumeLayout(false);
+            pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numAnio).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numKm).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

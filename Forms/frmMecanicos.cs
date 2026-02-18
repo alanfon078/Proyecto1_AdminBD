@@ -195,5 +195,10 @@ namespace Proyecto1_AdminBD.Forms
                 MessageBox.Show("Selecciona un registro para eliminar.");
             }
         }
+
+        private void dgvMecanicos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnEditar_Click(sender, e); 
+        }
     }
 }

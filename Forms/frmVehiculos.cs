@@ -198,5 +198,9 @@ namespace Proyecto1_AdminBD
             }
         }
 
+        private void dgvVehiculos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnEditar_Click(sender, e);
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Proyecto1_AdminBD.ObjectsClasses;
 using System;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Proyecto1_AdminBD.Forms
 {
@@ -16,6 +17,7 @@ namespace Proyecto1_AdminBD.Forms
             MecanicoResultante = new Mecanico();
             lblTitulo.Text = "Nuevo Mecánico";
             esEdicion = false;
+            cargarDatosPredeterminados();
         }
 
         // Constructor para EDITAR registro
@@ -37,27 +39,47 @@ namespace Proyecto1_AdminBD.Forms
             numSalario.Value = MecanicoResultante.Salario;
             numExperiencia.Value = MecanicoResultante.AniosExperiencia;
 
-            // Nota: El No. Empleado y RFC suelen ser únicos, a veces se bloquean en edición
-            // txtNoEmpleado.Enabled = false; 
+            // Nota: El No. Empleado y RFC son únicos se bloquean en la edición
+            txtNoEmpleado.Enabled = false; 
         }
+
+        private void cargarDatosPredeterminados()
+        {
+            txtNoEmpleado.Text = "EMP";            
+            numSalario.Value = 15000;
+
+        }
+
+        private bool validarTodo()
+        {
+            return !string.IsNullOrWhiteSpace(txtNombre.Text) &&
+                   !string.IsNullOrWhiteSpace(txtRfc.Text) &&
+                   !string.IsNullOrWhiteSpace(txtTelefono.Text) && txtTelefono.Text.Length == 10;
+        }
+
+
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            // Validaciones básicas
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtRfc.Text))
+            if (validarTodo())
             {
-                MessageBox.Show("El Nombre y el RFC son obligatorios.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Todos los datos son obligatorios.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            String rgx = (@"^EMP\d{1,}$");
+            if (!Regex.IsMatch(txtNoEmpleado.Text, rgx))
+            {
+                MessageBox.Show("El formato para el noEmpleado es EMP seguido de un numero", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Asignar valores al objeto
             MecanicoResultante.NoEmpleado = txtNoEmpleado.Text;
             MecanicoResultante.Rfc = txtRfc.Text;
             MecanicoResultante.NombreCompleto = txtNombre.Text;
             MecanicoResultante.Telefono = txtTelefono.Text;
             MecanicoResultante.Salario = numSalario.Value;
             MecanicoResultante.AniosExperiencia = (int)numExperiencia.Value;
-            MecanicoResultante.Activo = true; // Por defecto
+            MecanicoResultante.Activo = true;
 
             this.DialogResult = DialogResult.OK;
             this.Close();

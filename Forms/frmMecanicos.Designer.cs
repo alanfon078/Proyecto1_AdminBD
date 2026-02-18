@@ -21,10 +21,10 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             pnlTop = new Panel();
             btnNuevo = new Button();
             btnEditar = new Button();
@@ -138,33 +138,33 @@
             dgvMecanicos.AllowUserToAddRows = false;
             dgvMecanicos.AllowUserToDeleteRows = false;
             dgvMecanicos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(248, 249, 250);
-            dgvMecanicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 249, 250);
+            dgvMecanicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvMecanicos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvMecanicos.BackgroundColor = Color.White;
             dgvMecanicos.BorderStyle = BorderStyle.None;
             dgvMecanicos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvMecanicos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(52, 73, 94);
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = Color.White;
-            dataGridViewCellStyle10.Padding = new Padding(5);
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            dgvMecanicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(52, 73, 94);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.Padding = new Padding(5);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvMecanicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvMecanicos.ColumnHeadersHeight = 40;
             dgvMecanicos.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = SystemColors.Window;
-            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle11.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle11.Padding = new Padding(5);
-            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(173, 216, 230);
-            dataGridViewCellStyle11.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
-            dgvMecanicos.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle3.Padding = new Padding(5);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(173, 216, 230);
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvMecanicos.DefaultCellStyle = dataGridViewCellStyle3;
             dgvMecanicos.Dock = DockStyle.Fill;
             dgvMecanicos.EnableHeadersVisualStyles = false;
             dgvMecanicos.Location = new Point(0, 80);
@@ -172,12 +172,13 @@
             dgvMecanicos.ReadOnly = true;
             dgvMecanicos.RowHeadersVisible = false;
             dgvMecanicos.RowHeadersWidth = 51;
-            dataGridViewCellStyle12.BackColor = Color.White;
-            dgvMecanicos.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dgvMecanicos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvMecanicos.RowTemplate.Height = 35;
             dgvMecanicos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMecanicos.Size = new Size(1143, 720);
             dgvMecanicos.TabIndex = 2;
+            dgvMecanicos.CellDoubleClick += dgvMecanicos_CellContentDoubleClick;
             // 
             // dataGridViewTextBoxColumn1
             // 
