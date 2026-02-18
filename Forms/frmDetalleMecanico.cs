@@ -30,6 +30,8 @@ namespace Proyecto1_AdminBD.Forms
             CargarDatosEnControles();
         }
 
+        // En Forms/frmDetalleMecanico.cs
+
         private void CargarDatosEnControles()
         {
             txtNoEmpleado.Text = MecanicoResultante.NoEmpleado;
@@ -38,9 +40,10 @@ namespace Proyecto1_AdminBD.Forms
             txtTelefono.Text = MecanicoResultante.Telefono;
             numSalario.Value = MecanicoResultante.Salario;
             numExperiencia.Value = MecanicoResultante.AniosExperiencia;
+            cmbEspecialidades.Text = MecanicoResultante.Especialidades;
 
-            //El No.Empleado y RFC son únicos se bloquean en la edición
-            txtNoEmpleado.Enabled = false; 
+            // El No.Empleado y RFC son únicos se bloquean en la edición
+            txtNoEmpleado.Enabled = false;
             txtRfc.Enabled = false;
         }
 
@@ -93,8 +96,14 @@ namespace Proyecto1_AdminBD.Forms
                 MessageBox.Show("El salario debe ser mayor a 0.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+            // 6. Validar Especialidad
+            if (cmbEspecialidades.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debes seleccionar una especialidad.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
 
-            return true; 
+            return true;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -108,6 +117,7 @@ namespace Proyecto1_AdminBD.Forms
             MecanicoResultante.Telefono = txtTelefono.Text.Trim();
             MecanicoResultante.Salario = numSalario.Value;
             MecanicoResultante.AniosExperiencia = (int)numExperiencia.Value;
+            MecanicoResultante.Especialidades = cmbEspecialidades.Text;
             MecanicoResultante.Activo = true;
 
             this.DialogResult = DialogResult.OK;

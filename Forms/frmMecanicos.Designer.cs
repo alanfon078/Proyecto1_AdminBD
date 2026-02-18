@@ -7,7 +7,6 @@
         private Button btnEditar;
         private Button btnEliminar;
         private Button btnRefrescar;
-        private TextBox txtBuscador;
         private DataGridView dgvMecanicos;
 
         private System.ComponentModel.IContainer components = null;
@@ -30,7 +29,6 @@
             btnEditar = new Button();
             btnEliminar = new Button();
             btnRefrescar = new Button();
-            txtBuscador = new TextBox();
             dgvMecanicos = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
@@ -49,7 +47,6 @@
             pnlTop.Controls.Add(btnEditar);
             pnlTop.Controls.Add(btnEliminar);
             pnlTop.Controls.Add(btnRefrescar);
-            pnlTop.Controls.Add(txtBuscador);
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
             pnlTop.Name = "pnlTop";
@@ -120,19 +117,6 @@
             btnRefrescar.TabIndex = 3;
             btnRefrescar.UseVisualStyleBackColor = false;
             btnRefrescar.Click += btnRefrescar_Click_1;
-            // 
-            // txtBuscador
-            // 
-            txtBuscador.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtBuscador.BackColor = Color.FromArgb(63, 63, 70);
-            txtBuscador.BorderStyle = BorderStyle.None;
-            txtBuscador.Font = new Font("Segoe UI", 11F);
-            txtBuscador.ForeColor = Color.White;
-            txtBuscador.Location = new Point(860, 25);
-            txtBuscador.Name = "txtBuscador";
-            txtBuscador.PlaceholderText = "  Buscar...";
-            txtBuscador.Size = new Size(260, 25);
-            txtBuscador.TabIndex = 5;
             // 
             // dgvMecanicos
             // 
@@ -210,11 +194,11 @@
             dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // salario
-            //
-            this.salario.HeaderText = "Salario";
-            this.salario.MinimumWidth = 6;
-            this.salario.Name = "colSalario";
-            this.salario.ReadOnly = true;
+            // 
+            salario.HeaderText = "Salario";
+            salario.MinimumWidth = 6;
+            salario.Name = "salario";
+            salario.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -235,7 +219,6 @@
             Name = "frmMecanicos";
             Text = "Gestión de Mecánicos";
             pnlTop.ResumeLayout(false);
-            pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvMecanicos).EndInit();
             ResumeLayout(false);
         }

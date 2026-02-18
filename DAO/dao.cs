@@ -16,17 +16,25 @@ namespace Proyecto1_AdminBD.DAO
 
         public bool InsertarMecanico(Mecanico m)
         {
-            // Nota: Las especialidades estan en otra tabla, aqui guardamos los datos base.
-            string query = @"
-        INSERT INTO Mecanicos (No_Empleado, RFC, Nombre_Completo, Telefono, Salario, Anios_Experiencia) 
-        VALUES (@noEmp, @rfc, @nombre, @tel, @salario, @anios);";
-
             using (MySqlConnection con = conexion.ObtenerConexion())
             {
                 if (con == null) return false;
+
+                MySqlTransaction transaction = null;
+
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand(query, con);
+                    // Iniciamos una transacción para asegurar integridad (se guardan los dos o ninguno)
+                    transaction = con.BeginTransaction();
+
+                    // 1. Insertar datos base del Mecánico y obtener el ID generado
+                    // Agregamos "; SELECT LAST_INSERT_ID();" al final de la consulta
+                    string queryMecanico = @"
+                INSERT INTO Mecanicos (No_Empleado, RFC, Nombre_Completo, Telefono, Salario, Anios_Experiencia) 
+                VALUES (@noEmp, @rfc, @nombre, @tel, @salario, @anios);
+                SELECT LAST_INSERT_ID();";
+
+                    MySqlCommand cmd = new MySqlCommand(queryMecanico, con, transaction);
                     cmd.Parameters.AddWithValue("@noEmp", m.NoEmpleado);
                     cmd.Parameters.AddWithValue("@rfc", m.Rfc);
                     cmd.Parameters.AddWithValue("@nombre", m.NombreCompleto);
@@ -34,12 +42,31 @@ namespace Proyecto1_AdminBD.DAO
                     cmd.Parameters.AddWithValue("@salario", m.Salario);
                     cmd.Parameters.AddWithValue("@anios", m.AniosExperiencia);
 
-                    int filas = cmd.ExecuteNonQuery();
-                    return filas > 0;
+                    // ExecuteScalar nos devuelve el ID generado por la inserción
+                    int idGenerado = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    // 2. Insertar la Especialidad en la tabla relacionada
+                    if (!string.IsNullOrEmpty(m.Especialidades))
+                    {
+                        string queryEspec = @"
+                    INSERT INTO Especialidades_Mecanicos (ID_Mecanico, Especialidad) 
+                    VALUES (@idMec, @espec);";
+
+                        MySqlCommand cmdEspec = new MySqlCommand(queryEspec, con, transaction);
+                        cmdEspec.Parameters.AddWithValue("@idMec", idGenerado);
+                        cmdEspec.Parameters.AddWithValue("@espec", m.Especialidades);
+                        cmdEspec.ExecuteNonQuery();
+                    }
+
+                    // Si todo salió bien, confirmamos los cambios
+                    transaction.Commit();
+                    return true;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al registrar mecánico: " + ex.Message);
+                    // Si hubo error, revertimos cualquier cambio parcial
+                    if (transaction != null) transaction.Rollback();
+                    MessageBox.Show("Error al registrar mecánico y su especialidad: " + ex.Message);
                     return false;
                 }
             }
@@ -104,34 +131,63 @@ namespace Proyecto1_AdminBD.DAO
 
         public bool ActualizarMecanico(Mecanico m)
         {
-            string query = @"
-        UPDATE Mecanicos 
-        SET No_Empleado = @noEmp, 
-            RFC = @rfc, 
-            Nombre_Completo = @nombre, 
-            Telefono = @tel, 
-            Salario = @salario, 
-            Anios_Experiencia = @anios
-        WHERE ID_Mecanico = @id;";
-
             using (MySqlConnection con = conexion.ObtenerConexion())
             {
                 if (con == null) return false;
+
+                MySqlTransaction transaction = null;
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@noEmp", m.NoEmpleado);
-                    cmd.Parameters.AddWithValue("@rfc", m.Rfc);
+                    transaction = con.BeginTransaction();
+
+                    // 1. Actualizar datos base en la tabla Mecanicos
+                    string queryUpdate = @"
+                UPDATE Mecanicos 
+                SET Nombre_Completo = @nombre, 
+                    Telefono = @tel, 
+                    Salario = @salario, 
+                    Anios_Experiencia = @anios
+                WHERE ID_Mecanico = @id;";
+
+                    // Nota: No actualizamos RFC ni No_Empleado porque suelen ser inmutables o llaves lógicas
+
+                    MySqlCommand cmd = new MySqlCommand(queryUpdate, con, transaction);
                     cmd.Parameters.AddWithValue("@nombre", m.NombreCompleto);
                     cmd.Parameters.AddWithValue("@tel", m.Telefono);
                     cmd.Parameters.AddWithValue("@salario", m.Salario);
                     cmd.Parameters.AddWithValue("@anios", m.AniosExperiencia);
                     cmd.Parameters.AddWithValue("@id", m.IdMecanico);
 
-                    return cmd.ExecuteNonQuery() > 0;
+                    cmd.ExecuteNonQuery();
+
+                    // 2. Actualizar Especialidad:
+                    // Estrategia: Borrar la anterior e insertar la nueva (para evitar duplicados o lógica compleja)
+
+                    if (!string.IsNullOrEmpty(m.Especialidades))
+                    {
+                        // A) Borrar especialidades existentes de este mecánico
+                        string queryDeleteEspec = "DELETE FROM Especialidades_Mecanicos WHERE ID_Mecanico = @idMec;";
+                        MySqlCommand cmdDel = new MySqlCommand(queryDeleteEspec, con, transaction);
+                        cmdDel.Parameters.AddWithValue("@idMec", m.IdMecanico);
+                        cmdDel.ExecuteNonQuery();
+
+                        // B) Insertar la nueva especialidad seleccionada
+                        string queryInsertEspec = @"
+                    INSERT INTO Especialidades_Mecanicos (ID_Mecanico, Especialidad) 
+                    VALUES (@idMec, @espec);";
+
+                        MySqlCommand cmdIns = new MySqlCommand(queryInsertEspec, con, transaction);
+                        cmdIns.Parameters.AddWithValue("@idMec", m.IdMecanico);
+                        cmdIns.Parameters.AddWithValue("@espec", m.Especialidades);
+                        cmdIns.ExecuteNonQuery();
+                    }
+
+                    transaction.Commit();
+                    return true;
                 }
                 catch (Exception ex)
                 {
+                    if (transaction != null) transaction.Rollback();
                     MessageBox.Show("Error al actualizar mecánico: " + ex.Message);
                     return false;
                 }

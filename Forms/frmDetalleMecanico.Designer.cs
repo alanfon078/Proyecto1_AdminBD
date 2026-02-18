@@ -30,6 +30,8 @@
             numExperiencia = new NumericUpDown();
             btnGuardar = new Button();
             btnCancelar = new Button();
+            cmbEspecialidades = new ComboBox();
+            label7 = new Label();
             pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numSalario).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numExperiencia).BeginInit();
@@ -64,9 +66,9 @@
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label1.Location = new Point(34, 93);
             label1.Name = "label1";
-            label1.Size = new Size(111, 20);
+            label1.Size = new Size(118, 20);
             label1.TabIndex = 1;
-            label1.Text = "No. Empleado:";
+            label1.Text = "*No. Empleado:";
             // 
             // txtNoEmpleado
             // 
@@ -83,9 +85,9 @@
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label2.Location = new Point(263, 93);
             label2.Name = "label2";
-            label2.Size = new Size(40, 20);
+            label2.Size = new Size(47, 20);
             label2.TabIndex = 3;
-            label2.Text = "RFC:";
+            label2.Text = "*RFC:";
             // 
             // txtRfc
             // 
@@ -102,9 +104,9 @@
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label3.Location = new Point(34, 173);
             label3.Name = "label3";
-            label3.Size = new Size(143, 20);
+            label3.Size = new Size(150, 20);
             label3.TabIndex = 5;
-            label3.Text = "Nombre Completo:";
+            label3.Text = "*Nombre Completo:";
             // 
             // txtNombre
             // 
@@ -121,9 +123,9 @@
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label4.Location = new Point(34, 253);
             label4.Name = "label4";
-            label4.Size = new Size(74, 20);
+            label4.Size = new Size(81, 20);
             label4.TabIndex = 7;
-            label4.Text = "Teléfono:";
+            label4.Text = "*Teléfono:";
             // 
             // txtTelefono
             // 
@@ -140,9 +142,9 @@
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label5.Location = new Point(263, 253);
             label5.Name = "label5";
-            label5.Size = new Size(60, 20);
+            label5.Size = new Size(67, 20);
             label5.TabIndex = 9;
-            label5.Text = "Salario:";
+            label5.Text = "*Salario:";
             // 
             // numSalario
             // 
@@ -164,9 +166,9 @@
             label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label6.Location = new Point(34, 333);
             label6.Name = "label6";
-            label6.Size = new Size(132, 20);
+            label6.Size = new Size(138, 20);
             label6.TabIndex = 11;
-            label6.Text = "Años Experiencia:";
+            label6.Text = "*Años Experiencia:";
             // 
             // numExperiencia
             // 
@@ -212,12 +214,37 @@
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
+            // cmbEspecialidades
+            // 
+            cmbEspecialidades.AutoCompleteCustomSource.AddRange(new string[] { "Motor General", "Transmisiones", "Frenos ABS", "Sistema Eléctrico", "Suspensión y Dirección" });
+            cmbEspecialidades.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbEspecialidades.Font = new Font("Segoe UI", 10F);
+            cmbEspecialidades.FormattingEnabled = true;
+            cmbEspecialidades.Items.AddRange(new object[] { "Motor General", "Transmisiones", "Frenos ABS", "Sistema Eléctrico", "Suspensión y Dirección" });
+            cmbEspecialidades.Location = new Point(266, 357);
+            cmbEspecialidades.Margin = new Padding(3, 4, 3, 4);
+            cmbEspecialidades.Name = "cmbEspecialidades";
+            cmbEspecialidades.Size = new Size(205, 31);
+            cmbEspecialidades.TabIndex = 12;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label7.Location = new Point(262, 333);
+            label7.Name = "label7";
+            label7.Size = new Size(105, 20);
+            label7.TabIndex = 13;
+            label7.Text = "*Especialidad:";
+            // 
             // frmDetalleMecanico
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
             ClientSize = new Size(514, 533);
+            Controls.Add(cmbEspecialidades);
+            Controls.Add(label7);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(numExperiencia);
@@ -264,5 +291,7 @@
         private System.Windows.Forms.NumericUpDown numExperiencia;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
+        private ComboBox cmbEspecialidades;
+        private Label label7;
     }
 }
