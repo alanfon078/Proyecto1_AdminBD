@@ -70,9 +70,9 @@
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label1.Location = new Point(34, 93);
             label1.Name = "label1";
-            label1.Size = new Size(123, 20);
+            label1.Size = new Size(130, 20);
             label1.TabIndex = 1;
-            label1.Text = "Dueño (Cliente):";
+            label1.Text = "*Dueño (Cliente):";
             // 
             // cmbCliente
             // 
@@ -91,9 +91,9 @@
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label2.Location = new Point(34, 173);
             label2.Name = "label2";
-            label2.Size = new Size(76, 20);
+            label2.Size = new Size(83, 20);
             label2.TabIndex = 3;
-            label2.Text = "No. Serie:";
+            label2.Text = "*No. Serie:";
             // 
             // txtSerie
             // 
@@ -110,9 +110,9 @@
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label3.Location = new Point(320, 173);
             label3.Name = "label3";
-            label3.Size = new Size(56, 20);
+            label3.Size = new Size(63, 20);
             label3.TabIndex = 5;
-            label3.Text = "Placas:";
+            label3.Text = "*Placas:";
             // 
             // txtPlacas
             // 
@@ -129,9 +129,9 @@
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label4.Location = new Point(34, 253);
             label4.Name = "label4";
-            label4.Size = new Size(56, 20);
+            label4.Size = new Size(63, 20);
             label4.TabIndex = 7;
-            label4.Text = "Marca:";
+            label4.Text = "*Marca:";
             // 
             // txtMarca
             // 
@@ -148,9 +148,9 @@
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label5.Location = new Point(320, 253);
             label5.Name = "label5";
-            label5.Size = new Size(66, 20);
+            label5.Size = new Size(73, 20);
             label5.TabIndex = 9;
-            label5.Text = "Modelo:";
+            label5.Text = "*Modelo:";
             // 
             // txtModelo
             // 
@@ -167,9 +167,9 @@
             label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label6.Location = new Point(34, 333);
             label6.Name = "label6";
-            label6.Size = new Size(42, 20);
+            label6.Size = new Size(48, 20);
             label6.TabIndex = 11;
-            label6.Text = "Año:";
+            label6.Text = "*Año:";
             // 
             // numAnio
             // 
@@ -189,9 +189,9 @@
             label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label7.Location = new Point(171, 333);
             label7.Name = "label7";
-            label7.Size = new Size(51, 20);
+            label7.Size = new Size(58, 20);
             label7.TabIndex = 13;
-            label7.Text = "Color:";
+            label7.Text = "*Color:";
             // 
             // txtColor
             // 
@@ -208,9 +208,9 @@
             label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label8.Location = new Point(320, 333);
             label8.Name = "label8";
-            label8.Size = new Size(37, 20);
+            label8.Size = new Size(44, 20);
             label8.TabIndex = 15;
-            label8.Text = "Km:";
+            label8.Text = "*Km:";
             // 
             // numKm
             // 
@@ -228,9 +228,9 @@
             label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label9.Location = new Point(451, 333);
             label9.Name = "label9";
-            label9.Size = new Size(44, 20);
+            label9.Size = new Size(51, 20);
             label9.TabIndex = 17;
-            label9.Text = "Tipo:";
+            label9.Text = "*Tipo:";
             // 
             // cmbTipo
             // 
