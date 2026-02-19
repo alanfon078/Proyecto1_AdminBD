@@ -35,7 +35,7 @@ namespace Proyecto1_AdminBD.DAO
                     // Agregamos "; SELECT LAST_INSERT_ID();" al final de la consulta
                     string queryMecanico = @"
                 INSERT INTO Mecanicos (RFC, Nombre_Completo, Telefono, Salario, Anios_Experiencia) 
-                VALUES (@noEmp, @rfc, @nombre, @tel, @salario, @anios);
+                VALUES (@rfc, @nombre, @tel, @salario, @anios);
                 SELECT LAST_INSERT_ID();";
 
                     MySqlCommand cmd = new MySqlCommand(queryMecanico, con, transaction);

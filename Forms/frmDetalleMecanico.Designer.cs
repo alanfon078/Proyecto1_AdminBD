@@ -17,9 +17,9 @@
             pnlHeader = new Panel();
             lblTitulo = new Label();
             label2 = new Label();
-            txtRfc = new TextBox();
-            label3 = new Label();
             txtNombre = new TextBox();
+            label3 = new Label();
+            txtRfc = new TextBox();
             label4 = new Label();
             txtTelefono = new TextBox();
             label5 = new Label();
@@ -68,14 +68,14 @@
             label2.TabIndex = 3;
             label2.Text = "*RFC:";
             // 
-            // txtRfc
+            // txtNombre
             // 
-            txtRfc.Font = new Font("Segoe UI", 10F);
-            txtRfc.Location = new Point(34, 197);
-            txtRfc.Margin = new Padding(3, 4, 3, 4);
-            txtRfc.Name = "txtRfc";
-            txtRfc.Size = new Size(205, 30);
-            txtRfc.TabIndex = 2;
+            txtNombre.Font = new Font("Segoe UI", 10F);
+            txtNombre.Location = new Point(38, 111);
+            txtNombre.Margin = new Padding(3, 4, 3, 4);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(441, 30);
+            txtNombre.TabIndex = 2;
             // 
             // label3
             // 
@@ -87,14 +87,15 @@
             label3.TabIndex = 5;
             label3.Text = "*Nombre Completo:";
             // 
-            // txtNombre
+            // txtRfc
             // 
-            txtNombre.Font = new Font("Segoe UI", 10F);
-            txtNombre.Location = new Point(34, 111);
-            txtNombre.Margin = new Padding(3, 4, 3, 4);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(434, 30);
-            txtNombre.TabIndex = 3;
+            txtRfc.Font = new Font("Segoe UI", 10F);
+            txtRfc.Location = new Point(38, 197);
+            txtRfc.Margin = new Padding(3, 4, 3, 4);
+            txtRfc.Name = "txtRfc";
+            txtRfc.Size = new Size(205, 30);
+            txtRfc.TabIndex = 3;
+            txtRfc.KeyDown += txtNombre_KeyDown;
             // 
             // label4
             // 
@@ -232,9 +233,9 @@
             Controls.Add(label5);
             Controls.Add(txtTelefono);
             Controls.Add(label4);
-            Controls.Add(txtNombre);
-            Controls.Add(label3);
             Controls.Add(txtRfc);
+            Controls.Add(label3);
+            Controls.Add(txtNombre);
             Controls.Add(label2);
             Controls.Add(pnlHeader);
             FormBorderStyle = FormBorderStyle.None;
@@ -255,9 +256,9 @@
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtRfc;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtRfc;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label5;

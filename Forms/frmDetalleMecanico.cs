@@ -34,27 +34,27 @@ namespace Proyecto1_AdminBD.Forms
 
         private void CargarDatosEnControles()
         {
-            txtRfc.Text = MecanicoResultante.Rfc;
-            txtNombre.Text = MecanicoResultante.NombreCompleto;
+            txtNombre.Text = MecanicoResultante.Rfc;
+            txtRfc.Text = MecanicoResultante.NombreCompleto;
             txtTelefono.Text = MecanicoResultante.Telefono;
             numSalario.Value = MecanicoResultante.Salario;
             numExperiencia.Value = MecanicoResultante.AniosExperiencia;
             cmbEspecialidades.Text = MecanicoResultante.Especialidades;
 
             // El RFC son únicos se bloquean en la edición
-            txtRfc.Enabled = false;
+            txtNombre.Enabled = false;
         }
 
         private void cargarDatosPredeterminados()
-        {          
+        {
             numSalario.Value = 15000;
         }
 
         private bool ValidarDatos()
         {
             // 1. Validar que no haya campos vacíos
-            if (string.IsNullOrWhiteSpace(txtRfc.Text) ||
-                string.IsNullOrWhiteSpace(txtNombre.Text) ||
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                string.IsNullOrWhiteSpace(txtRfc.Text) ||
                 string.IsNullOrWhiteSpace(txtTelefono.Text))
             {
                 MessageBox.Show("Todos los campos de texto son obligatorios.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -97,8 +97,8 @@ namespace Proyecto1_AdminBD.Forms
         {
             // Ejecutar las validaciones
             if (!ValidarDatos()) return;
-            MecanicoResultante.Rfc = txtRfc.Text.Trim().ToUpper();
-            MecanicoResultante.NombreCompleto = txtNombre.Text.Trim(); 
+            MecanicoResultante.NombreCompleto = txtNombre.Text.Trim().ToUpper();
+            MecanicoResultante.Rfc = txtRfc.Text.Trim();
             MecanicoResultante.Telefono = txtTelefono.Text.Trim();
             MecanicoResultante.Salario = numSalario.Value;
             MecanicoResultante.AniosExperiencia = (int)numExperiencia.Value;
@@ -126,5 +126,16 @@ namespace Proyecto1_AdminBD.Forms
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtNombre.Focus();
+                e.SuppressKeyPress = true;
+
+            }
+        }
+
     }
 }
