@@ -31,7 +31,7 @@ CREATE TABLE Telefonos_Clientes (
 -- 3. Tabla MECANICOS
 CREATE TABLE Mecanicos (
     ID_Mecanico INT AUTO_INCREMENT PRIMARY KEY,
-    No_Empleado VARCHAR(20) NOT NULL UNIQUE,
+    No_Empleado varchar(100),
     RFC VARCHAR(13) NOT NULL UNIQUE,
     Nombre_Completo VARCHAR(150) NOT NULL,
     Telefono VARCHAR(20),
@@ -132,6 +132,21 @@ CREATE TABLE Detalle_Orden_Refacciones (
     FOREIGN KEY (ID_Refaccion) REFERENCES Refacciones(ID_Refaccion)
 );
 
+DELIMITER //
+CREATE TRIGGER tg_mecanicos_insert 
+BEFORE INSERT ON Mecanicos
+FOR EACH ROW
+BEGIN
+    DECLARE siguiente_id INT;
+    SELECT AUTO_INCREMENT INTO siguiente_id 
+    FROM information_schema.TABLES 
+    WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'Mecanicos';
+
+    SET NEW.No_Empleado = CONCAT('EMP', siguiente_id);
+END //
+DELIMITER ;
+
+
 -- Insertar Clientes (5)
 INSERT INTO Clientes (RFC, Nombre, Ap_Paterno, Ap_Materno, Calle, Numero, Colonia, CP, Ciudad, Email) VALUES
 ('XAXX010101000', 'Juan', 'Perez', 'Lopez', 'Av. Reforma', '123', 'Centro', '06000', 'CDMX', 'juan.perez@mail.com'),
@@ -145,16 +160,16 @@ INSERT INTO Telefonos_Clientes (ID_Cliente, Numero_Telefono) VALUES
 (1, '5512345678'), (1, '5587654321'), (2, '5544332211'), (3, '5599887766'), (4, '8112345678'), (5, '3312345678');
 
 -- Insertar Mecanicos (5)
-INSERT INTO Mecanicos (No_Empleado, RFC, Nombre_Completo, Telefono, Salario, Anios_Experiencia) VALUES
-('EMP1', 'MEC010101AAA', 'Roberto Mecanico', '5511112222', 15000.00, 10),
-('EMP2', 'MEC020202BBB', 'Laura Motor', '5533334444', 18000.00, 12),
-('EMP3', 'MEC030303CCC', 'Pedro Frenos', '5555556666', 12000.00, 5),
-('EMP4', 'MEC040404DDD', 'Sofia Electric', '5577778888', 16000.00, 8),
-('EMP5', 'MEC050505EEE', 'Miguel Suspension', '5599990000', 14000.00, 6);
+INSERT INTO Mecanicos (RFC, Nombre_Completo, Telefono, Salario, Anios_Experiencia) VALUES
+('MEC010101AAA', 'Roberto Mecanico', '5511112222', 15000.00, 10),
+('MEC020202BBB', 'Laura Motor', '5533334444', 18000.00, 12),
+('MEC030303CCC', 'Pedro Frenos', '5555556666', 12000.00, 5),
+('MEC040404DDD', 'Sofia Electric', '5577778888', 16000.00, 8),
+('MEC050505EEE', 'Miguel Suspension', '5599990000', 14000.00, 6);
 
 -- Insertar Especialidades
 INSERT INTO Especialidades_Mecanicos (ID_Mecanico, Especialidad) VALUES
-(1, 'Motor General'), (2, 'Transmisiones'), (3, 'Frenos ABS'), (4, 'Sistema Eléctrico'), (5, 'Suspensión y Dirección');
+(1, 'Motor General'), (2, 'Transmisiones'), (3, 'Frenos ABS'), (4, ' Sistema Eléctrico'), (5, 'Suspensión y Dirección');
 
 -- Insertar Servicios (5)
 INSERT INTO Servicios (Clave_Servicio, Nombre_Servicio, Descripcion, Costo_Base, Tiempo_Estimado_Hrs) VALUES

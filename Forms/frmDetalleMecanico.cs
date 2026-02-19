@@ -34,7 +34,6 @@ namespace Proyecto1_AdminBD.Forms
 
         private void CargarDatosEnControles()
         {
-            txtNoEmpleado.Text = MecanicoResultante.NoEmpleado;
             txtRfc.Text = MecanicoResultante.Rfc;
             txtNombre.Text = MecanicoResultante.NombreCompleto;
             txtTelefono.Text = MecanicoResultante.Telefono;
@@ -42,35 +41,23 @@ namespace Proyecto1_AdminBD.Forms
             numExperiencia.Value = MecanicoResultante.AniosExperiencia;
             cmbEspecialidades.Text = MecanicoResultante.Especialidades;
 
-            // El No.Empleado y RFC son únicos se bloquean en la edición
-            txtNoEmpleado.Enabled = false;
+            // El RFC son únicos se bloquean en la edición
             txtRfc.Enabled = false;
         }
 
         private void cargarDatosPredeterminados()
-        {
-            txtNoEmpleado.Text = "EMP";            
+        {          
             numSalario.Value = 15000;
-
         }
 
         private bool ValidarDatos()
         {
             // 1. Validar que no haya campos vacíos
-            if (string.IsNullOrWhiteSpace(txtNoEmpleado.Text) ||
-                string.IsNullOrWhiteSpace(txtRfc.Text) ||
+            if (string.IsNullOrWhiteSpace(txtRfc.Text) ||
                 string.IsNullOrWhiteSpace(txtNombre.Text) ||
                 string.IsNullOrWhiteSpace(txtTelefono.Text))
             {
                 MessageBox.Show("Todos los campos de texto son obligatorios.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            // 2. Validar No. Empleado 
-            string patronEmpleado = @"^EMP\d+$";
-            if (!Regex.IsMatch(txtNoEmpleado.Text.Trim().ToUpper(), patronEmpleado))
-            {
-                MessageBox.Show("El No. de Empleado debe tener el formato 'EMP' seguido de números (ej. EMP1, EMP12).", "Formato Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -110,8 +97,6 @@ namespace Proyecto1_AdminBD.Forms
         {
             // Ejecutar las validaciones
             if (!ValidarDatos()) return;
-
-            MecanicoResultante.NoEmpleado = txtNoEmpleado.Text.Trim().ToUpper();
             MecanicoResultante.Rfc = txtRfc.Text.Trim().ToUpper();
             MecanicoResultante.NombreCompleto = txtNombre.Text.Trim(); 
             MecanicoResultante.Telefono = txtTelefono.Text.Trim();

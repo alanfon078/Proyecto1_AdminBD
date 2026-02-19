@@ -16,8 +16,6 @@
         {
             pnlHeader = new Panel();
             lblTitulo = new Label();
-            label1 = new Label();
-            txtNoEmpleado = new TextBox();
             label2 = new Label();
             txtRfc = new TextBox();
             label3 = new Label();
@@ -60,30 +58,11 @@
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Detalle Mecánico";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label1.Location = new Point(34, 93);
-            label1.Name = "label1";
-            label1.Size = new Size(118, 20);
-            label1.TabIndex = 1;
-            label1.Text = "*No. Empleado:";
-            // 
-            // txtNoEmpleado
-            // 
-            txtNoEmpleado.Font = new Font("Segoe UI", 10F);
-            txtNoEmpleado.Location = new Point(38, 117);
-            txtNoEmpleado.Margin = new Padding(3, 4, 3, 4);
-            txtNoEmpleado.Name = "txtNoEmpleado";
-            txtNoEmpleado.Size = new Size(205, 30);
-            txtNoEmpleado.TabIndex = 1;
-            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label2.Location = new Point(263, 93);
+            label2.Location = new Point(31, 173);
             label2.Name = "label2";
             label2.Size = new Size(47, 20);
             label2.TabIndex = 3;
@@ -92,7 +71,7 @@
             // txtRfc
             // 
             txtRfc.Font = new Font("Segoe UI", 10F);
-            txtRfc.Location = new Point(266, 117);
+            txtRfc.Location = new Point(34, 197);
             txtRfc.Margin = new Padding(3, 4, 3, 4);
             txtRfc.Name = "txtRfc";
             txtRfc.Size = new Size(205, 30);
@@ -102,7 +81,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label3.Location = new Point(34, 173);
+            label3.Location = new Point(30, 87);
             label3.Name = "label3";
             label3.Size = new Size(150, 20);
             label3.TabIndex = 5;
@@ -111,7 +90,7 @@
             // txtNombre
             // 
             txtNombre.Font = new Font("Segoe UI", 10F);
-            txtNombre.Location = new Point(38, 197);
+            txtNombre.Location = new Point(34, 111);
             txtNombre.Margin = new Padding(3, 4, 3, 4);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(434, 30);
@@ -257,8 +236,6 @@
             Controls.Add(label3);
             Controls.Add(txtRfc);
             Controls.Add(label2);
-            Controls.Add(txtNoEmpleado);
-            Controls.Add(label1);
             Controls.Add(pnlHeader);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
@@ -277,8 +254,6 @@
 
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNoEmpleado;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtRfc;
         private System.Windows.Forms.Label label3;

@@ -15,11 +15,14 @@
 
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             pnlTop = new Panel();
+            pictureBox1 = new PictureBox();
+            textBox1 = new TextBox();
             btnNuevo = new Button();
             btnEditar = new Button();
             btnEliminar = new Button();
@@ -33,13 +36,17 @@
             dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
+            contextMenuStrip1 = new ContextMenuStrip(components);
             pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvVehiculos).BeginInit();
             SuspendLayout();
             // 
             // pnlTop
             // 
             pnlTop.BackColor = Color.FromArgb(45, 45, 48);
+            pnlTop.Controls.Add(pictureBox1);
+            pnlTop.Controls.Add(textBox1);
             pnlTop.Controls.Add(btnNuevo);
             pnlTop.Controls.Add(btnEditar);
             pnlTop.Controls.Add(btnEliminar);
@@ -50,6 +57,26 @@
             pnlTop.Padding = new Padding(10);
             pnlTop.Size = new Size(1066, 80);
             pnlTop.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.manage_search_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24;
+            pictureBox1.Location = new Point(795, 40);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(26, 27);
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.FromArgb(45, 45, 48);
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
+            textBox1.ForeColor = SystemColors.InactiveBorder;
+            textBox1.Location = new Point(820, 40);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(246, 27);
+            textBox1.TabIndex = 4;
             // 
             // btnNuevo
             // 
@@ -214,6 +241,12 @@
             dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
             // frmVehiculos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -225,6 +258,8 @@
             Name = "frmVehiculos";
             Text = "Gestión de Vehículos";
             pnlTop.ResumeLayout(false);
+            pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvVehiculos).EndInit();
             ResumeLayout(false);
         }
@@ -243,5 +278,8 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private TextBox textBox1;
+        private ContextMenuStrip contextMenuStrip1;
+        private PictureBox pictureBox1;
     }
 }
