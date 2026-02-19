@@ -10,7 +10,7 @@ namespace Conection.Conexion
     internal class cnxn
     {
         /// <summary>
-        /// Obtiene una conexión a la base de datos MySQL.
+        /// Obtiene una conexión a la base de daO MySQL.
         /// </summary
         /// <returns> Objeto MySqlConnection abierto.</returns>
         public MySqlConnection ObtenerConexion()

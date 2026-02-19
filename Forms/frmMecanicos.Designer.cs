@@ -25,7 +25,9 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             pnlTop = new Panel();
+            pictureBox1 = new PictureBox();
             btnNuevo = new Button();
+            txtBoxBusqueda = new TextBox();
             btnEditar = new Button();
             btnEliminar = new Button();
             btnRefrescar = new Button();
@@ -37,13 +39,16 @@
             salario = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvMecanicos).BeginInit();
             SuspendLayout();
             // 
             // pnlTop
             // 
             pnlTop.BackColor = Color.FromArgb(45, 45, 48);
+            pnlTop.Controls.Add(pictureBox1);
             pnlTop.Controls.Add(btnNuevo);
+            pnlTop.Controls.Add(txtBoxBusqueda);
             pnlTop.Controls.Add(btnEditar);
             pnlTop.Controls.Add(btnEliminar);
             pnlTop.Controls.Add(btnRefrescar);
@@ -53,6 +58,16 @@
             pnlTop.Padding = new Padding(10);
             pnlTop.Size = new Size(1143, 80);
             pnlTop.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.manage_search_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24;
+            pictureBox1.Location = new Point(872, 40);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(26, 27);
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
             // 
             // btnNuevo
             // 
@@ -69,6 +84,16 @@
             btnNuevo.TabIndex = 0;
             btnNuevo.UseVisualStyleBackColor = false;
             btnNuevo.Click += btnNuevo_Click;
+            // 
+            // txtBoxBusqueda
+            // 
+            txtBoxBusqueda.BackColor = Color.FromArgb(45, 45, 48);
+            txtBoxBusqueda.BorderStyle = BorderStyle.FixedSingle;
+            txtBoxBusqueda.ForeColor = SystemColors.InactiveBorder;
+            txtBoxBusqueda.Location = new Point(897, 40);
+            txtBoxBusqueda.Name = "txtBoxBusqueda";
+            txtBoxBusqueda.Size = new Size(246, 27);
+            txtBoxBusqueda.TabIndex = 6;
             // 
             // btnEditar
             // 
@@ -219,6 +244,8 @@
             Name = "frmMecanicos";
             Text = "Gestión de Mecánicos";
             pnlTop.ResumeLayout(false);
+            pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvMecanicos).EndInit();
             ResumeLayout(false);
         }
@@ -229,5 +256,7 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DataGridViewTextBoxColumn salario;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private PictureBox pictureBox1;
+        private TextBox txtBoxBusqueda;
     }
 }

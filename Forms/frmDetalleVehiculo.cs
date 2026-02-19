@@ -109,7 +109,7 @@ namespace Proyecto1_AdminBD.Forms
             // Ejecutar validaciones
             if (!ValidarDatosVehiculo()) return;
 
-            // Asignación de datos limpios
+            // Asignación de daO limpios
             VehiculoResultante.IdCliente = Convert.ToInt32(cmbCliente.SelectedValue);
 
             // Convertir a mayúsculas Serie y Placas para uniformidad en BD

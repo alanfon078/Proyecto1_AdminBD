@@ -13,7 +13,7 @@ namespace Proyecto1_AdminBD
 {
     public partial class frmVehiculos : Form
     {
-        private dao datos = new dao();
+        private dao daO = new dao();
 
         // Variables para la animacion de carga
         private System.Windows.Forms.Timer timerAnimacion;
@@ -81,8 +81,8 @@ namespace Proyecto1_AdminBD
                 // Simular tiempo de carga (2 segundos) o esperar proceso real
                 await Task.Delay(2000);
 
-                // Cargar los datos de la BD
-                List<Vehiculo> lista = datos.ObtenerVehiculos();
+                // Cargar los daO de la BD
+                List<Vehiculo> lista = daO.ObtenerVehiculos();
                 dgvVehiculos.DataSource = lista;
             }
             catch (Exception ex)
@@ -130,7 +130,7 @@ namespace Proyecto1_AdminBD
 
         private void CargarDatos()
         {
-            List<Vehiculo> lista = datos.ObtenerVehiculos();
+            List<Vehiculo> lista = daO.ObtenerVehiculos();
             dgvVehiculos.DataSource = lista;
         }
 
@@ -139,7 +139,7 @@ namespace Proyecto1_AdminBD
             frmDetalleVehiculo frm = new frmDetalleVehiculo();
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                if (datos.InsertarVehiculo(frm.VehiculoResultante))
+                if (daO.InsertarVehiculo(frm.VehiculoResultante))
                 {
                     MessageBox.Show("Vehículo registrado con éxito.");
                     CargarDatos();
@@ -158,7 +158,7 @@ namespace Proyecto1_AdminBD
 
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    if (datos.ActualizarVehiculo(frm.VehiculoResultante))
+                    if (daO.ActualizarVehiculo(frm.VehiculoResultante))
                     {
                         MessageBox.Show("Vehículo actualizado correctamente.");
                         CargarDatos();
@@ -185,7 +185,7 @@ namespace Proyecto1_AdminBD
 
                 if (r == DialogResult.Yes)
                 {
-                    if (datos.EliminarVehiculo(obj.IdVehiculo))
+                    if (daO.EliminarVehiculo(obj.IdVehiculo))
                     {
                         MessageBox.Show("Vehículo eliminado.");
                         CargarDatos();
@@ -201,6 +201,10 @@ namespace Proyecto1_AdminBD
         private void dgvVehiculos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             btnEditar_Click(sender, e);
+        }
+
+        private void txtBoxBusqueda_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }

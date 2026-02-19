@@ -15,11 +15,14 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             pnlTop = new Panel();
+            pictureBox1 = new PictureBox();
+            txtBoxBusqueda = new TextBox();
             btnNuevo = new Button();
             btnEditar = new Button();
             btnEliminar = new Button();
@@ -33,13 +36,17 @@
             dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
+            contextMenuStrip1 = new ContextMenuStrip(components);
             pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvVehiculos).BeginInit();
             SuspendLayout();
             // 
             // pnlTop
             // 
             pnlTop.BackColor = Color.FromArgb(45, 45, 48);
+            pnlTop.Controls.Add(pictureBox1);
+            pnlTop.Controls.Add(txtBoxBusqueda);
             pnlTop.Controls.Add(btnNuevo);
             pnlTop.Controls.Add(btnEditar);
             pnlTop.Controls.Add(btnEliminar);
@@ -50,6 +57,27 @@
             pnlTop.Padding = new Padding(10);
             pnlTop.Size = new Size(1066, 80);
             pnlTop.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.manage_search_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24;
+            pictureBox1.Location = new Point(795, 40);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(26, 27);
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
+            // txtBoxBusqueda
+            // 
+            txtBoxBusqueda.BackColor = Color.FromArgb(45, 45, 48);
+            txtBoxBusqueda.BorderStyle = BorderStyle.FixedSingle;
+            txtBoxBusqueda.ForeColor = SystemColors.InactiveBorder;
+            txtBoxBusqueda.Location = new Point(820, 40);
+            txtBoxBusqueda.Name = "txtBoxBusqueda";
+            txtBoxBusqueda.Size = new Size(246, 27);
+            txtBoxBusqueda.TabIndex = 4;
+            txtBoxBusqueda.TextChanged += txtBoxBusqueda_TextChanged;
             // 
             // btnNuevo
             // 
@@ -116,33 +144,33 @@
             dgvVehiculos.AllowUserToAddRows = false;
             dgvVehiculos.AllowUserToDeleteRows = false;
             dgvVehiculos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 249, 250);
-            dgvVehiculos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(248, 249, 250);
+            dgvVehiculos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             dgvVehiculos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvVehiculos.BackgroundColor = Color.White;
             dgvVehiculos.BorderStyle = BorderStyle.None;
             dgvVehiculos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvVehiculos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(52, 73, 94);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.Padding = new Padding(5);
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvVehiculos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(52, 73, 94);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.Padding = new Padding(5);
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvVehiculos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvVehiculos.ColumnHeadersHeight = 40;
             dgvVehiculos.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8 });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle3.Padding = new Padding(5);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(173, 216, 230);
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvVehiculos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Window;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle7.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle7.Padding = new Padding(5);
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(173, 216, 230);
+            dataGridViewCellStyle7.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            dgvVehiculos.DefaultCellStyle = dataGridViewCellStyle7;
             dgvVehiculos.Dock = DockStyle.Fill;
             dgvVehiculos.EnableHeadersVisualStyles = false;
             dgvVehiculos.Location = new Point(0, 80);
@@ -150,8 +178,8 @@
             dgvVehiculos.ReadOnly = true;
             dgvVehiculos.RowHeadersVisible = false;
             dgvVehiculos.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dgvVehiculos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = Color.White;
+            dgvVehiculos.RowsDefaultCellStyle = dataGridViewCellStyle8;
             dgvVehiculos.RowTemplate.Height = 35;
             dgvVehiculos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvVehiculos.Size = new Size(1066, 597);
@@ -214,6 +242,12 @@
             dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
             // frmVehiculos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -225,6 +259,8 @@
             Name = "frmVehiculos";
             Text = "Gestión de Vehículos";
             pnlTop.ResumeLayout(false);
+            pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvVehiculos).EndInit();
             ResumeLayout(false);
         }
@@ -243,5 +279,8 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private TextBox txtBoxBusqueda;
+        private ContextMenuStrip contextMenuStrip1;
+        private PictureBox pictureBox1;
     }
 }

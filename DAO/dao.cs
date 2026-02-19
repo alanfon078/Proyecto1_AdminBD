@@ -13,7 +13,11 @@ namespace Proyecto1_AdminBD.DAO
 
 
         // CRUD MECÁNICOS
-
+        /// <summary>
+        /// Metodo para insertar un mecanico en la BD
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
         public bool InsertarMecanico(Mecanico m)
         {
             using (MySqlConnection con = conexion.ObtenerConexion())
@@ -24,18 +28,17 @@ namespace Proyecto1_AdminBD.DAO
 
                 try
                 {
-                    // Iniciamos una transacción para asegurar integridad (se guardan los dos o ninguno)
+                    // Iniciamos una transacción para asegurar integridad (se guardan todo o ninguno)
                     transaction = con.BeginTransaction();
 
-                    // 1. Insertar datos base del Mecánico y obtener el ID generado
+                    // 1. Insertar daO base del Mecánico y obtener el ID generado
                     // Agregamos "; SELECT LAST_INSERT_ID();" al final de la consulta
                     string queryMecanico = @"
-                INSERT INTO Mecanicos (No_Empleado, RFC, Nombre_Completo, Telefono, Salario, Anios_Experiencia) 
+                INSERT INTO Mecanicos (RFC, Nombre_Completo, Telefono, Salario, Anios_Experiencia) 
                 VALUES (@noEmp, @rfc, @nombre, @tel, @salario, @anios);
                 SELECT LAST_INSERT_ID();";
 
                     MySqlCommand cmd = new MySqlCommand(queryMecanico, con, transaction);
-                    cmd.Parameters.AddWithValue("@noEmp", m.NoEmpleado);
                     cmd.Parameters.AddWithValue("@rfc", m.Rfc);
                     cmd.Parameters.AddWithValue("@nombre", m.NombreCompleto);
                     cmd.Parameters.AddWithValue("@tel", m.Telefono);
@@ -71,7 +74,10 @@ namespace Proyecto1_AdminBD.DAO
                 }
             }
         }
-
+        /// <summary>
+        /// Lee todos los mecanicos en la BD
+        /// </summary>
+        /// <returns></returns>
         public List<Mecanico> ObtenerMecanicos()
         {
             List<Mecanico> lista = new List<Mecanico>();
@@ -128,7 +134,11 @@ namespace Proyecto1_AdminBD.DAO
             }
             return lista;
         }
-
+        /// <summary>
+        /// Actualiza un meecanico
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
         public bool ActualizarMecanico(Mecanico m)
         {
             using (MySqlConnection con = conexion.ObtenerConexion())
@@ -140,7 +150,7 @@ namespace Proyecto1_AdminBD.DAO
                 {
                     transaction = con.BeginTransaction();
 
-                    // 1. Actualizar datos base en la tabla Mecanicos
+                    // 1. Actualizar daO base en la tabla Mecanicos
                     string queryUpdate = @"
                 UPDATE Mecanicos 
                 SET Nombre_Completo = @nombre, 

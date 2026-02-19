@@ -79,7 +79,7 @@ namespace Proyecto1_AdminBD.Forms
                 // Simular tiempo de carga (2 segundos) o esperar proceso real
                 await Task.Delay(2000);
 
-                // Cargar los datos de la BD
+                // Cargar los daO de la BD
                 List<Mecanico> lista = datos.ObtenerMecanicos();
                 dgvMecanicos.DataSource = lista;
             }
