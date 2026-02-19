@@ -8,18 +8,23 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Proyecto1_AdminBD
 {
     public partial class frmVehiculos : Form
     {
         private dao daO = new dao();
+        private List<Vehiculo> listaOriginalVehiculos = new List<Vehiculo>();
 
         // Variables para la animacion de carga
         private System.Windows.Forms.Timer timerAnimacion;
         private Image imagenOriginal;
         private int anguloRotacion = 0;
         private bool estaCargando = false;
+
+
 
         public frmVehiculos()
         {
@@ -130,8 +135,8 @@ namespace Proyecto1_AdminBD
 
         private void CargarDatos()
         {
-            List<Vehiculo> lista = daO.ObtenerVehiculos();
-            dgvVehiculos.DataSource = lista;
+            listaOriginalVehiculos = daO.ObtenerVehiculos();
+            dgvVehiculos.DataSource = listaOriginalVehiculos;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -205,6 +210,29 @@ namespace Proyecto1_AdminBD
 
         private void txtBoxBusqueda_TextChanged(object sender, EventArgs e)
         {
+            string filtro = txtBoxBusqueda.Text.Trim().ToLower();
+
+            // Si no hay texto, volvemos a mostrar la lista original completa
+            if (string.IsNullOrWhiteSpace(filtro))
+            {
+                dgvVehiculos.DataSource = listaOriginalVehiculos;
+            }
+            else
+            {
+                // Filtramos la lista buscando coincidencias en los campos visibles
+                var listaFiltrada = listaOriginalVehiculos.Where(v =>
+                    v.IdVehiculo.ToString().Contains(filtro) ||
+                    (v.Placas != null && v.Placas.ToLower().Contains(filtro)) ||
+                    (v.Marca != null && v.Marca.ToLower().Contains(filtro)) ||
+                    (v.Modelo != null && v.Modelo.ToLower().Contains(filtro)) ||
+                    v.Anio.ToString().Contains(filtro) ||
+                    (v.Color != null && v.Color.ToLower().Contains(filtro)) ||
+                    (v.NombreCliente != null && v.NombreCliente.ToLower().Contains(filtro)) ||
+                    (v.EstadoTexto != null && v.EstadoTexto.ToLower().Contains(filtro))
+                ).ToList();
+
+                dgvVehiculos.DataSource = listaFiltrada;
+            }
         }
     }
 }

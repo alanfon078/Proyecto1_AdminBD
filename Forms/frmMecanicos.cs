@@ -12,6 +12,7 @@ namespace Proyecto1_AdminBD.Forms
     public partial class frmMecanicos : Form
     {
         private dao datos = new dao();
+        private List<Mecanico> listaOriginalMecanicos = new List<Mecanico>();
 
         // Variables para la animacion de carga
         private System.Windows.Forms.Timer timerAnimacion;
@@ -124,8 +125,8 @@ namespace Proyecto1_AdminBD.Forms
 
         private void CargarDatos()
         {
-            List<Mecanico> lista = datos.ObtenerMecanicos();
-            dgvMecanicos.DataSource = lista;
+            listaOriginalMecanicos = datos.ObtenerMecanicos();
+            dgvMecanicos.DataSource = listaOriginalMecanicos;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -202,7 +203,31 @@ namespace Proyecto1_AdminBD.Forms
 
         private void dgvMecanicos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnEditar_Click(sender, e); 
+            btnEditar_Click(sender, e);
+        }
+
+        private void txtBoxBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBoxBusqueda.Text.Trim().ToLower();
+
+            if (string.IsNullOrWhiteSpace(filtro))
+            {
+                dgvMecanicos.DataSource = listaOriginalMecanicos;
+            }
+            else
+            {
+                // Filtramos la lista buscando coincidencias en cualquier campo
+                var listaFiltrada = listaOriginalMecanicos.Where(m =>
+                    m.IdMecanico.ToString().Contains(filtro) ||
+                    (m.NombreCompleto != null && m.NombreCompleto.ToLower().Contains(filtro)) ||
+                    (m.Telefono != null && m.Telefono.Contains(filtro)) ||
+                    (m.Especialidades != null && m.Especialidades.ToLower().Contains(filtro)) ||
+                    m.Salario.ToString().Contains(filtro) ||
+                    (m.EstadoTexto != null && m.EstadoTexto.ToLower().Contains(filtro))
+                ).ToList();
+
+                dgvMecanicos.DataSource = listaFiltrada;
+            }
         }
     }
 }

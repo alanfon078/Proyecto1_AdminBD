@@ -94,6 +94,7 @@
             txtBoxBusqueda.Name = "txtBoxBusqueda";
             txtBoxBusqueda.Size = new Size(246, 27);
             txtBoxBusqueda.TabIndex = 6;
+            txtBoxBusqueda.TextChanged += txtBoxBusqueda_TextChanged;
             // 
             // btnEditar
             // 
